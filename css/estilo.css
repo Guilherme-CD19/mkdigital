@@ -78,7 +78,7 @@ header menu a{
     height: 820px;
     width: 100%;
     padding: 30px;
-    background-image: url('imagens/logos/logo_normal.png'), url('imagens/imagens/cidade.jpg');
+    background-image: url('../imagens/logos/logo_normal.png'), url('../imagens/imagens/cidade.jpg');
     background-repeat: no-repeat;
     background-position: center 250px, center center;
     background-size: 370px, 2000px;
@@ -130,7 +130,7 @@ header menu a{
 }
 
 .es, .sm, .ga, .gl{
-    background-image: url('imagens/imagens/fundoazul.jpg');
+    background-image: url('../imagens/imagens/fundoazul.jpg');
     background-repeat: no-repeat;
     background-size: 500px;
     background-position: center center;
@@ -220,7 +220,7 @@ header menu a{
 
 #blog{
     background-color: #12B1CE;
-    background-image: url('imagens/imagens/predio.jpg');
+    background-image: url('../imagens/imagens/predio.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -360,7 +360,7 @@ header menu a{
 .imagemhistoria{
     grid-area: img;
     background-color: #EDEDED;
-    background-image: url('imagens/logos/logo_normal_2.png'), url('imagens/imagens/globo.png');
+    background-image: url('../imagens/logos/logo_normal_2.png'), url('../imagens/imagens/globo.png');
     background-size: 300px, 400px;
     background-position: center, center;
     background-repeat: no-repeat;
@@ -397,7 +397,7 @@ header menu a{
 #cases{
     height: 600px;
     width: 100%;
-    background-image: url('imagens/imagens/sala.jpg');
+    background-image: url('../imagens/imagens/sala.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
