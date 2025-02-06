@@ -8,6 +8,10 @@ body{
     font-family: Arial, sans-serif;
 }
 
+#body{
+    width: 100%;
+}
+
 header{
     background-image: linear-gradient(to right, #EDEDED 30%,#35497C 30%);
 }
@@ -23,11 +27,18 @@ header nav{
     margin: 0 auto;
 }
 
+header label, header #botaomenu{
+    display: none;
+}
+
 header nav menu{
+    height: 80px;
+    overflow: hidden;
     list-style: none;
     flex-grow: 6;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 li a{
@@ -74,6 +85,130 @@ header menu a{
     height: 55px;
 }
 
+@media(max-width: 851px){
+    header{
+        background-color: #FFFFFF;
+        background-image: none;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    header nav{
+        height: 100px;
+        background-color: #FFFFFF;
+        justify-content: space-around;
+        align-items: center;
+        gap: 20px
+    }
+
+    header nav menu{
+        height: 0;
+        overflow: hidden;
+        transition: all 500ms ease;
+        background-color: #35497C;
+        border-radius: 10px;
+    }
+
+    #botaomenu:checked + menu{
+        height: 60px;
+    }
+
+    header label{
+        display: block;
+        align-self: flex-start;
+        font-size: 50px;
+        height: 100px;
+        display: grid;
+        place-items: center;
+        color: #12B1CE;
+        font-size: 70px;
+        font-weight: bold;
+    }
+
+    header menu a{
+        color: #EDEDED;
+        font-size: 18px;
+    }
+    
+    #imagemtopo{
+        display: none;
+    }
+
+    .degrade{
+        display: none;
+    }
+    
+    header a{
+        font-size: 18px;
+    }
+
+    header a:hover{
+        border-bottom: 1px solid #71CF4F;
+        transform:scale(1.1);
+    }
+}
+
+@media(max-width: 671px){
+    header{
+        height: auto;
+        padding: 10px;
+    }
+
+    header nav{
+        height: 400px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0;
+        background-image: url('../imagens/logos/logo_normal.png');
+        background-position: center 100px;
+        background-size: 350px;
+        background-repeat: no-repeat;
+    }
+
+    header nav menu{
+        height: 0;
+        width: 0;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        box-shadow: 1px 2px 5px rgb(88, 88, 88);
+    }
+
+    #botaomenu:checked + menu{
+        height: 40px;
+        width: 180px;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 10px;
+    }
+
+    header menu li{
+        border-bottom: 2px dashed #FFFFFF;
+        padding: 2px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navhome{
+        border-bottom: none;
+    }
+
+    header li:hover{
+        border-bottom: 2px dashed #71CF4F;
+        transform:scale(1.1);
+    }
+
+    header menu li a{
+        font-size: 20px;
+    }
+
+    header menu li a:hover{
+        border-bottom: none;
+    }
+}
+
 .chamada{
     height: 820px;
     width: 100%;
@@ -85,6 +220,30 @@ header menu a{
     display: flex;
     flex-direction: column;
     justify-content: end;
+}
+
+@media (max-width:851px){
+    .chamada{
+        height: 600px;
+        background-position: center 150px, center center;
+        background-size: 370px, 1000px;
+    }
+}
+
+@media(max-width: 671px){
+    .chamada{
+        background-image: none;
+        height: 200px;
+        padding: 10px;
+        background-image: url("../imagens/imagens/cidade.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        place-items: center;
+        border-bottom: 7px solid #71CF4F;
+        border-top: 7px solid #71CF4F;
+    }
 }
 
 .textchamada{
@@ -114,35 +273,6 @@ header menu a{
     background-color: #FFFFFF;
 }
 
-.navegacao{
-    height: 550px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,1fr);
-    grid-template-areas: 'estrategia social orcamento'
-                         'google geracao orcamento';
-    gap: 25px;
-    padding: 20px;
-}
-
-.bigbotao{
-    transition: all 750ms ease;
-}
-
-.es, .sm, .ga, .gl{
-    background-image: url('../imagens/imagens/fundoazul.jpg');
-    background-repeat: no-repeat;
-    background-size: 500px;
-    background-position: center center;
-    font-size: 26px;
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 20px;
-}
-
 .es:hover, .sm:hover, .ga:hover, .gl:hover{
     transform:scale(1.05);
 }
@@ -163,6 +293,32 @@ header menu a{
     grid-area: geracao;
 }
 
+.navegacao{
+    height: 550px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas: 'estrategia social orcamento'
+                         'google geracao orcamento';
+    gap: 25px;
+    padding: 20px;
+}
+
+.es, .sm, .ga, .gl{
+    background-image: url('../imagens/imagens/fundoazul.jpg');
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: center center;
+    font-size: 26px;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+}
+
 .or{
     grid-area: orcamento;
     background-color: #A6A6A6;
@@ -175,15 +331,15 @@ header menu a{
 
 #navegacao .or hr{
     height: 5px;
-    width: 200px;
+    width: 40%;
     background-color: #71CF4F;
     border: 1px solid #71CF4F;
 }
 
 .or h3{
-    font-size: 28px;
     color: #FFFFFF;
     text-shadow: 3px 2px 5px rgb(97, 97, 97);
+    font-size: 28px;
 }
 
 .infos{
@@ -201,6 +357,83 @@ header menu a{
     font-weight: bold;
     color: #292929;
     background-color: #FFFFFF;
+}
+
+@media (max-width: 1024px){
+    .navegacao{
+        grid-template-columns: repeat(2,2fr) 3fr;
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas: "estrategia social orcamento"
+                             "google geracao orcamento";
+    }
+
+    .es, .sm, .ga, .gl{
+        font-size: 22px;
+    }
+
+    .or h3{
+        font-size: 24px;
+    }
+
+    .textchamada{
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 851px){
+    .navegacao{
+        height: 950px;
+        grid-template-columns: repeat(2,2fr);
+        grid-template-rows: repeat(2,1fr) 2fr;
+        grid-template-areas: "estrategia social"
+                             "google geracao"
+                             "orcamento orcamento";
+    }
+
+    .textchamada{
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 671px){
+    .navegacao{
+        height: 800px;
+    }
+
+    .es, .sm, .ga, .gl{
+        font-size: 18px;
+    }
+
+    .textchamada{
+        font-size: 42px;
+    }
+
+    .infos{
+        width: 90%;
+        gap: 12px;
+    }
+
+    .or p{
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 5px;
+    }
+}
+
+
+@media (max-width: 426px){
+    .es, .sm, .ga, .gl{
+        font-size: 16px;
+    }
+
+    .textchamada{
+        font-size: 38px;
+    }
+}
+
+.bigbotao{
+    transition: all 750ms ease;
+    box-shadow: 3px 5px 5px rgb(158, 158, 158);
 }
 
 .botao1{
@@ -295,6 +528,68 @@ header menu a{
     background-color: #2492a5;
 }
 
+@media(max-width: 1024px){
+    #blog{
+        height: 800px;
+    }
+    
+    .blog{
+        height: 800px;
+    }
+
+    .posts{
+        height: 700px;
+        width: 400px;
+    }
+
+    .perfil h3{
+        font-size: 24px;
+    }
+
+    .perfil img{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media(max-width: 851px){
+    #blog{
+        height: 1300px;
+    }
+    
+    .blog{
+        height: 1300px;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .posts{
+        height: 575px;
+        width: 475px;
+    }
+}
+
+@media(max-width: 570px){
+    #blog{
+        height: auto;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    
+    .blog{
+        height: auto;
+        gap: 50px;
+    }
+
+    .posts{
+        gap: 10px;
+        padding: 20px;
+        height: auto;
+        width: 90%;
+    }
+}
+
 #parceiros{
     background-color: #FFFFFF;
     height: 250px;
@@ -307,6 +602,7 @@ header menu a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .parceiros h3{
@@ -340,6 +636,98 @@ header menu a{
 
 .empresas .googleads{
     width: 180px;
+}
+
+@media(max-width: 1024px){
+    #parceiros{
+        height: 400px; 
+    }
+    
+    .parceiros{
+        height: 400px;
+    }
+
+    .empresas{
+        height: 250px;
+        flex-wrap: wrap;
+        gap: 35px
+    }
+
+    .empresas .itau{
+        width: 100px;
+    }
+    
+    .empresas .meta{
+        width: 230px;
+    }
+    
+    .empresas .google{
+        width: 230px;
+    }
+    
+    .empresas .magnesita{
+        width: 150px;
+    }
+    
+    .empresas .googleads{
+        width: 200px;
+    }
+}
+
+@media(max-width: 670px){
+    #parceiros{
+        height: 550px; 
+    }
+
+    .parceiros{
+        height: 550px;
+    }
+
+    .empresas{
+        height: 400px;
+    }
+
+    .empresas .itau{
+        width: 80px;
+    }
+    
+    .empresas .meta{
+        width: 220px;
+    }
+    
+    .empresas .google{
+        width: 220px;
+    }
+    
+    .empresas .magnesita{
+        width: 130px;
+    }
+    
+    .empresas .googleads{
+        width: 180px;
+    }
+}
+
+@media (max-width: 425px){
+    .empresas .itau{
+        width: 50px;
+    }
+    
+    .empresas .meta{
+        width: 190px;
+    }
+    
+    .empresas .google{
+        width: 190px;
+    }
+    
+    .empresas .magnesita{
+        width: 100px;
+    }
+    
+    .empresas .googleads{
+        width: 150px;
+    }
 }
 
 #historia{
@@ -394,6 +782,65 @@ header menu a{
     width: 300px;
 }
 
+@media (max-width: 1024px){
+    .historia{
+        height: 900px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas: 'img'
+                             'texto';
+    }
+
+    #historia{
+        height: 900px;
+    }
+
+    .textohistoria h1{
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 570px){
+    .historia{
+        height: 1200px;
+        grid-template-rows: 1fr 2fr;
+    }
+
+    #historia{
+        height: 1200px;
+    }
+}
+
+@media (max-width: 425px){
+    .historia{
+        height: auto;
+        grid-template-rows: 1fr 2fr;
+        width: 100%;
+    }
+
+    #historia{
+        height: auto;
+        width: 100%;
+    }
+
+    .imagemhistoria{
+        width: 100%;
+        height: auto;
+        background-size: 250px, 350px;
+    }
+
+    .textohistoria{
+        height: auto;
+        width: 100%;
+        gap: 20px;
+        padding: 20px 40px;
+    }
+    
+    .historia hr{
+        width: 90%;
+    }
+}
+
 #cases{
     height: 600px;
     width: 100%;
@@ -411,6 +858,7 @@ header menu a{
     width: 510px;
     border-radius: 40px;
     padding: 30px;
+    box-shadow: 0px 0px 10px rgb(102, 102, 102);
     transition: all 750ms ease;
 }
 
@@ -433,6 +881,12 @@ header menu a{
     text-shadow: 2px 5px 5px rgb(97, 97, 97);
 }
 
+@media (max-width: 851px){
+    .textocases h1{
+        font-size: 38px;
+    }
+}
+
 .textocases h3{
     font-size: 32px;
 }
@@ -440,6 +894,51 @@ header menu a{
 .textocases p{
     text-align: center;
     font-size: 20px;
+}
+
+@media(max-width: 570px){
+    #cases{
+        height: 750px;
+    }
+    
+    .cases{
+        height: 600px;
+        width: 390px;
+        border-radius: 30px;
+        padding: 25px;
+    }
+
+    .textocases{
+        height: 550px;
+    }
+
+    .textocases h1{
+        font-size: 40px;
+        color: #30671C;
+        text-shadow: 2px 5px 5px rgb(97, 97, 97);
+    }
+
+    .textocases h3{
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 425px){
+    #cases{
+        height: auto;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    
+    .cases{
+        width: 90%;
+        height: auto;
+    }
+
+    .textocases{
+        height: auto;
+        width: 100%;
+    }
 }
 
 .botao3{
@@ -484,4 +983,20 @@ footer{
 .rodape .contato p, .rodape .imagemfim p{
     color: #FFFFFF;
     font-weight: 300;
+}
+
+@media (max-width: 570px){
+    footer{
+        height: 400px;
+    }
+    
+    .rodape{
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 400px;
+    }
+
+    .redes{
+        order: 2;
+    }
 }
